@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+	<Name value="HSVehicleAsDecoration" />
+	<DisplayName value="HS Vehicle As Decoration" />
+	<Description value="Craftable vehicle shells for prefabs. Full wheels and mod slots, no engine, battery, or refuel. Mods show on the mesh. Bikes stay upright. They cannot be driven." />
+	<Author value="Crumb" />
+	<Version value="1.0.2" />
+	<SkipWithAntiCheat value="true" />
+</xml>

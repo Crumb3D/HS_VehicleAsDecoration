@@ -1,0 +1,70 @@
+<configs>
+	<append xpath="/items">
+
+		<item name="HSVehicleDecoBicycle">
+			<property name="Extends" value="vehicleBicyclePlaceable" />
+			<property name="CustomIcon" value="vehicleBicyclePlaceable" />
+			<property name="CreativeMode" value="Player" />
+			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
+			<property name="EconomicValue" value="0" />
+			<property name="SellableToTrader" value="false" />
+			<effect_group name="HSVehicleDecoBicycle" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="2" />
+				<passive_effect name="DegradationMax" operation="base_set" value="1500" />
+			</effect_group>
+		</item>
+
+		<item name="HSVehicleDecoMinibike">
+			<property name="Extends" value="vehicleMinibikePlaceable" />
+			<property name="CustomIcon" value="vehicleMinibikePlaceable" />
+			<property name="CreativeMode" value="Player" />
+			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
+			<property name="EconomicValue" value="0" />
+			<property name="SellableToTrader" value="false" />
+			<effect_group name="HSVehicleDecoMinibike" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="3" />
+				<passive_effect name="DegradationMax" operation="base_set" value="2000" />
+			</effect_group>
+		</item>
+
+		<item name="HSVehicleDecoMotorcycle">
+			<property name="Extends" value="vehicleMotorcyclePlaceable" />
+			<property name="CustomIcon" value="vehicleMotorcyclePlaceable" />
+			<property name="CreativeMode" value="Player" />
+			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
+			<property name="EconomicValue" value="0" />
+			<property name="SellableToTrader" value="false" />
+			<effect_group name="HSVehicleDecoMotorcycle" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="4" />
+				<passive_effect name="DegradationMax" operation="base_set" value="4000" />
+			</effect_group>
+		</item>
+
+		<item name="HSVehicleDecoTruck4x4">
+			<property name="Extends" value="vehicleTruck4x4Placeable" />
+			<property name="CustomIcon" value="vehicleTruck4x4Placeable" />
+			<property name="CreativeMode" value="Player" />
+			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
+			<property name="EconomicValue" value="0" />
+			<property name="SellableToTrader" value="false" />
+			<effect_group name="HSVehicleDecoTruck4x4" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="5" />
+				<passive_effect name="DegradationMax" operation="base_set" value="8000" />
+			</effect_group>
+		</item>
+
+		<item name="HSVehicleDecoGyrocopter">
+			<property name="Extends" value="vehicleGyrocopterPlaceable" />
+			<property name="CustomIcon" value="vehicleGyrocopterPlaceable" />
+			<property name="CreativeMode" value="Player" />
+			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
+			<property name="EconomicValue" value="0" />
+			<property name="SellableToTrader" value="false" />
+			<effect_group name="HSVehicleDecoGyrocopter" tiered="false">
+				<passive_effect name="ModSlots" operation="base_set" value="5" />
+				<passive_effect name="DegradationMax" operation="base_set" value="3500" />
+			</effect_group>
+		</item>
+
+	</append>
+</configs>

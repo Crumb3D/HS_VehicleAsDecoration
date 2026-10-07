@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <!-- Copy to Directory.Build.props (gitignored) and point at your install. -->
+  <PropertyGroup>
+    <GameDir>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die</GameDir>
+    <!-- Harmony ships with the game as 0_TFP_Harmony. Use the Mods folder you actually load. -->
+    <HarmonyDir>$(GameDir)\Mods\0_TFP_Harmony</HarmonyDir>
+  </PropertyGroup>
+</Project>

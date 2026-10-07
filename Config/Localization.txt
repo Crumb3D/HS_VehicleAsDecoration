@@ -1,0 +1,7 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,KeepLoaded,english
+HSVehicleDecoBicycle,vehicles,item,,,,Bicycle (decoration)
+HSVehicleDecoMinibike,vehicles,item,,,,Minibike (decoration)
+HSVehicleDecoMotorcycle,vehicles,item,,,,Motorcycle (decoration)
+HSVehicleDecoTruck4x4,vehicles,item,,,,4x4 (decoration)
+HSVehicleDecoGyrocopter,vehicles,item,,,,Gyrocopter (decoration)
+HSVehicleDecoDesc,vehicles,item,,,,"The real vehicle, with its wheels. No engine, so it cannot be driven. Install mods and the parts show on the mesh."

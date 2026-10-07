@@ -1,0 +1,41 @@
+<configs>
+	<append xpath="/recipes">
+
+		<!-- Real bicycle: 2 wheels, chassis, handlebars, 1 mechanical part. No engine. -->
+		<recipe name="HSVehicleDecoBicycle" count="1" craft_time="30" tags="workbenchCrafting,packMuleCrafting">
+			<ingredient name="vehicleWheels" count="2"/>
+			<ingredient name="vehicleBicycleChassis" count="1"/>
+			<ingredient name="vehicleBicycleHandlebars" count="1"/>
+			<ingredient name="resourceMechanicalParts" count="1"/>
+		</recipe>
+
+		<!-- Real minibike: 2 wheels, chassis, handlebars, smallEngine, carBattery. -->
+		<recipe name="HSVehicleDecoMinibike" count="1" craft_time="90" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="vehicleWheels" count="2"/>
+			<ingredient name="vehicleMinibikeChassis" count="1"/>
+			<ingredient name="vehicleMinibikeHandlebars" count="1"/>
+		</recipe>
+
+		<!-- Real motorcycle: 2 wheels, chassis, handlebars, smallEngine, carBattery. -->
+		<recipe name="HSVehicleDecoMotorcycle" count="1" craft_time="150" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="vehicleWheels" count="2"/>
+			<ingredient name="vehicleMotorcycleChassis" count="1"/>
+			<ingredient name="vehicleMotorcycleHandlebars" count="1"/>
+		</recipe>
+
+		<!-- Real 4x4: 4 wheels, chassis, accessories, smallEngine, carBattery. -->
+		<recipe name="HSVehicleDecoTruck4x4" count="1" craft_time="210" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="vehicleWheels" count="4"/>
+			<ingredient name="vehicleTruck4x4Chassis" count="1"/>
+			<ingredient name="vehicleTruck4x4Accessories" count="1"/>
+		</recipe>
+
+		<!-- Real gyrocopter: 3 wheels, chassis, accessories, smallEngine, carBattery. -->
+		<recipe name="HSVehicleDecoGyrocopter" count="1" craft_time="270" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="vehicleWheels" count="3"/>
+			<ingredient name="vehicleGyroCopterChassis" count="1"/>
+			<ingredient name="vehicleGyroCopterAccessories" count="1"/>
+		</recipe>
+
+	</append>
+</configs>
