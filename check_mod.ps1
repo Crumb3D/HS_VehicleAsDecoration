@@ -16,10 +16,20 @@ foreach ($n in $vanillaItems) { $known[$n] = $true }
 
 $itemsXml = Get-Content (Join-Path $Root "Config\items.xml") -Raw
 $recipeXml = Get-Content (Join-Path $Root "Config\recipes.xml") -Raw
+$blocksPath = Join-Path $Root "Config\blocks.xml"
 $locXml = Get-Content (Join-Path $Root "Config\Localization.txt") -Raw
 try { [xml]$itemsXml | Out-Null; Ok "items.xml" } catch { Fail "items.xml: $_" }
 try { [xml]$recipeXml | Out-Null; Ok "recipes.xml" } catch { Fail "recipes.xml: $_" }
-if (Test-Path (Join-Path $Root "Config\blocks.xml")) { Fail "blocks.xml should be gone; shells are vehicles" }
+if (-not (Test-Path $blocksPath)) { Fail "blocks.xml missing" }
+else {
+    $blocksXml = Get-Content $blocksPath -Raw
+    try { [xml]$blocksXml | Out-Null; Ok "blocks.xml" } catch { Fail "blocks.xml: $_" }
+    foreach ($anchor in @("HSVehicleDecoAnchorBicycle", "HSVehicleDecoAnchorMinibike", "HSVehicleDecoAnchorMotorcycle", "HSVehicleDecoAnchorTruck4x4", "HSVehicleDecoAnchorGyrocopter")) {
+        if ($blocksXml -notmatch [regex]::Escape("block name=`"$anchor`"")) { Fail "blocks.xml missing $anchor" }
+    }
+    if ($blocksXml -notmatch "HSVehicleDeco, HSVehicleAsDecoration") { Fail "anchor class missing" } else { Ok "anchor class" }
+    if ($blocksXml -match "CanPickup`" value=`"true`"") { Fail "anchor can be picked up" } else { Ok "anchors cannot be picked up" }
+}
 
 $expected = @{
     HSVehicleDecoBicycle = 2
@@ -74,7 +84,7 @@ $dll = Join-Path $Root "HSVehicleAsDecoration.dll"
 if (-not (Test-Path $dll)) { Fail "HSVehicleAsDecoration.dll missing" }
 else {
     $ascii = [Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes($dll))
-    foreach ($t in @("HSVehicleAsDecorationMod", "HSVehicleDecoration", "IsShell", "isDriveable", "AddFuelFromInventory", "KeepUpright")) {
+    foreach ($t in @("HSVehicleAsDecorationMod", "HSVehicleDecoration", "IsShell", "isDriveable", "AddFuelFromInventory", "KeepUpright", "BlockHSVehicleDeco", "AddTrackedVehicle")) {
         if ($ascii.IndexOf($t) -lt 0) { Fail "DLL missing '$t'" } else { Ok "dll $t" }
     }
 }

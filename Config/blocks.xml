@@ -1,0 +1,90 @@
+<configs>
+	<append xpath="/blocks">
+
+		<block name="HSVehicleDecoAnchorBicycle">
+			<property name="CreativeMode" value="None" />
+			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
+			<property name="CustomIcon" value="vehicleBicyclePlaceable" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="Shape" value="Invisible" />
+			<property name="WaterFlow" value="permitted" />
+			<property name="Collide" value="sight" />
+			<property name="StabilitySupport" value="false" />
+			<property name="CanPickup" value="false" />
+			<property name="VehicleItem" value="HSVehicleDecoBicycle" />
+			<property name="SpawnClass" value="vehicleBicycle" />
+			<property name="ImposterExclude" value="true" />
+			<drop event="Harvest" count="0" />
+			<drop event="Destroy" count="0" />
+		</block>
+
+		<block name="HSVehicleDecoAnchorMinibike">
+			<property name="CreativeMode" value="None" />
+			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
+			<property name="CustomIcon" value="vehicleMinibikePlaceable" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="Shape" value="Invisible" />
+			<property name="WaterFlow" value="permitted" />
+			<property name="Collide" value="sight" />
+			<property name="StabilitySupport" value="false" />
+			<property name="CanPickup" value="false" />
+			<property name="VehicleItem" value="HSVehicleDecoMinibike" />
+			<property name="SpawnClass" value="vehicleMinibike" />
+			<property name="ImposterExclude" value="true" />
+			<drop event="Harvest" count="0" />
+			<drop event="Destroy" count="0" />
+		</block>
+
+		<block name="HSVehicleDecoAnchorMotorcycle">
+			<property name="CreativeMode" value="None" />
+			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
+			<property name="CustomIcon" value="vehicleMotorcyclePlaceable" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="Shape" value="Invisible" />
+			<property name="WaterFlow" value="permitted" />
+			<property name="Collide" value="sight" />
+			<property name="StabilitySupport" value="false" />
+			<property name="CanPickup" value="false" />
+			<property name="VehicleItem" value="HSVehicleDecoMotorcycle" />
+			<property name="SpawnClass" value="vehicleMotorcycle" />
+			<property name="ImposterExclude" value="true" />
+			<drop event="Harvest" count="0" />
+			<drop event="Destroy" count="0" />
+		</block>
+
+		<block name="HSVehicleDecoAnchorTruck4x4">
+			<property name="CreativeMode" value="None" />
+			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
+			<property name="CustomIcon" value="vehicleTruck4x4Placeable" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="Shape" value="Invisible" />
+			<property name="WaterFlow" value="permitted" />
+			<property name="Collide" value="sight" />
+			<property name="StabilitySupport" value="false" />
+			<property name="CanPickup" value="false" />
+			<property name="VehicleItem" value="HSVehicleDecoTruck4x4" />
+			<property name="SpawnClass" value="vehicleTruck4x4" />
+			<property name="ImposterExclude" value="true" />
+			<drop event="Harvest" count="0" />
+			<drop event="Destroy" count="0" />
+		</block>
+
+		<block name="HSVehicleDecoAnchorGyrocopter">
+			<property name="CreativeMode" value="None" />
+			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
+			<property name="CustomIcon" value="vehicleGyrocopterPlaceable" />
+			<property name="Material" value="Mmetal_medium" />
+			<property name="Shape" value="Invisible" />
+			<property name="WaterFlow" value="permitted" />
+			<property name="Collide" value="sight" />
+			<property name="StabilitySupport" value="false" />
+			<property name="CanPickup" value="false" />
+			<property name="VehicleItem" value="HSVehicleDecoGyrocopter" />
+			<property name="SpawnClass" value="vehicleGyrocopter" />
+			<property name="ImposterExclude" value="true" />
+			<drop event="Harvest" count="0" />
+			<drop event="Destroy" count="0" />
+		</block>
+
+	</append>
+</configs>

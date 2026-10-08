@@ -4,9 +4,13 @@
 
 These are the real bicycle, minibike, motorcycle, 4x4, and gyrocopter. They keep their wheels, suspension, and mod slots. Place one, open it with the service interaction, and install mods the same way as a normal vehicle. Armor, storage, lights, a plow, an extra seat, and the other mod meshes show on the model.
 
-Drive, Ride, and Refuel are turned off. There is no engine and no battery in the recipe. The inventory and creative icons are the real vehicle icons.
+Drive, Ride, Refuel, and Take are turned off. There is no engine and no battery in the recipe. The inventory and creative icons are the real vehicle icons.
 
-The bicycle, minibike, and motorcycle are held upright, and the other shells cannot roll onto their side. Saving a prefab keeps any of these that sit inside the selection, mods included, because they are vehicles. Search the creative menu for "decoration".
+The bicycle, minibike, and motorcycle are held upright, and the other shells cannot roll onto their side. Search the creative menu for "decoration".
+
+A prefab file does not store vehicles. Placing one of these also places a hidden block, and that block is what the prefab keeps. Loading the prefab spawns the shell again, mods included. Shells placed before 1.0.3 were only vehicles, so they are not in a prefab saved with an older copy. Place them again.
+
+To remove one in the prefab editor, delete the invisible block in the cell under the vehicle.
 
 ## Craft
 
@@ -20,4 +24,4 @@ Same assembly list as the real vehicle, with the engine and battery left out. Wh
 | 4x4 | 4 | chassis, accessories | engine, battery |
 | Gyrocopter | 3 | chassis, accessories | engine, battery |
 
-Take one you placed and you get the shell back, mods still installed. Traders will not buy it.
+Traders will not buy it. It cannot be picked up.

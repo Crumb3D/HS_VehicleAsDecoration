@@ -7,7 +7,7 @@ public class HSVehicleAsDecorationMod : IModApi
     {
         if (!HSGameVersion.AllowLoad("[HSVehicleAsDecoration]"))
             return;
-        Log.Out("[HSVehicleAsDecoration] v1.0.2 vehicle shells. Full wheels and mod slots. No engine, no battery, no refuel. Icons match the real vehicles. Bikes are held upright.");
+        Log.Out("[HSVehicleAsDecoration] v1.0.3 vehicle shells. They cannot be driven, refueled, or picked up. A hidden block keeps each one in the prefab, mods included.");
         try
         {
             new Harmony("HSVehicleAsDecoration").PatchAll(Assembly.GetExecutingAssembly());

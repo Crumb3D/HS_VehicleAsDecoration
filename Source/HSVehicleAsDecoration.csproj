@@ -58,11 +58,16 @@
       <HintPath>$(ManagedDir)\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>$(ManagedDir)\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HSGameVersion.cs" />
     <Compile Include="HSVehicleAsDecorationMod.cs" />
     <Compile Include="HSVehicleDecoration.cs" />
+    <Compile Include="BlockHSVehicleDeco.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
