@@ -21,6 +21,9 @@ public static class HSVehicleDecoration
 
     static FieldInfo modField;
     static FieldInfo cosmeticField;
+    static PropertyInfo holdingEntityProperty;
+    static FieldInfo holdingEntityField;
+    static bool holdingEntityBound;
 
     public struct PendingPlace
     {
@@ -38,6 +41,26 @@ public static class HSVehicleDecoration
             return false;
         string name = data.itemValue.ItemClass.GetItemName();
         return name != null && name.StartsWith(ItemPrefix);
+    }
+
+    // 3.2 stores holdingEntity as a field. 3.3 replaced it with a property.
+    // A DLL built against 3.3 calls get_holdingEntity, which 3.2 does not have.
+    public static EntityAlive HoldingEntity(ItemInventoryData data)
+    {
+        if (data == null)
+            return null;
+        if (!holdingEntityBound)
+        {
+            BindingFlags flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            holdingEntityProperty = typeof(ItemInventoryData).GetProperty("holdingEntity", flags);
+            holdingEntityField = typeof(ItemInventoryData).GetField("holdingEntity", flags);
+            holdingEntityBound = true;
+        }
+        if (holdingEntityProperty != null)
+            return holdingEntityProperty.GetValue(data, null) as EntityAlive;
+        if (holdingEntityField != null)
+            return holdingEntityField.GetValue(data) as EntityAlive;
+        return null;
     }
 
     public static bool IsShellItem(ItemValue item)
@@ -479,7 +502,7 @@ public static class HSVehicleDecorationPlacePatch
     {
         if (!_bReleased)
             return true;
-        EntityPlayerLocal player = _actionData.invData.holdingEntity as EntityPlayerLocal;
+        EntityPlayerLocal player = HSVehicleDecoration.HoldingEntity(_actionData.invData) as EntityPlayerLocal;
         if (player == null)
             return true;
         ItemValue held = player.inventory.holdingItemItemValue;
