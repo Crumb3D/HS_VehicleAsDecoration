@@ -6,7 +6,7 @@ These are the real bicycle, minibike, motorcycle, 4x4, and gyrocopter. They keep
 
 Drive, Ride, Refuel, and Take are turned off. There is no engine and no battery in the recipe. The inventory and creative icons are the real vehicle icons. Traders will not buy one.
 
-The bicycle, minibike, and motorcycle are held upright, and the other shells cannot roll onto their side. Search the creative menu for "decoration".
+The bicycle, minibike, and motorcycle are held upright, and the other shells cannot roll onto their side. Search the creative menu for "decoration". They are listed in the normal creative menu and in the prefab editor.
 
 ## Prefabs
 

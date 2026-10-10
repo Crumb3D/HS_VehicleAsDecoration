@@ -4,7 +4,7 @@
 		<item name="HSVehicleDecoBicycle">
 			<property name="Extends" value="vehicleBicyclePlaceable" />
 			<property name="CustomIcon" value="vehicleBicyclePlaceable" />
-			<property name="CreativeMode" value="Player" />
+			<property name="CreativeMode" value="All" />
 			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
 			<property name="EconomicValue" value="0" />
 			<property name="SellableToTrader" value="false" />
@@ -17,7 +17,7 @@
 		<item name="HSVehicleDecoMinibike">
 			<property name="Extends" value="vehicleMinibikePlaceable" />
 			<property name="CustomIcon" value="vehicleMinibikePlaceable" />
-			<property name="CreativeMode" value="Player" />
+			<property name="CreativeMode" value="All" />
 			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
 			<property name="EconomicValue" value="0" />
 			<property name="SellableToTrader" value="false" />
@@ -30,7 +30,7 @@
 		<item name="HSVehicleDecoMotorcycle">
 			<property name="Extends" value="vehicleMotorcyclePlaceable" />
 			<property name="CustomIcon" value="vehicleMotorcyclePlaceable" />
-			<property name="CreativeMode" value="Player" />
+			<property name="CreativeMode" value="All" />
 			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
 			<property name="EconomicValue" value="0" />
 			<property name="SellableToTrader" value="false" />
@@ -43,7 +43,7 @@
 		<item name="HSVehicleDecoTruck4x4">
 			<property name="Extends" value="vehicleTruck4x4Placeable" />
 			<property name="CustomIcon" value="vehicleTruck4x4Placeable" />
-			<property name="CreativeMode" value="Player" />
+			<property name="CreativeMode" value="All" />
 			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
 			<property name="EconomicValue" value="0" />
 			<property name="SellableToTrader" value="false" />
@@ -56,7 +56,7 @@
 		<item name="HSVehicleDecoGyrocopter">
 			<property name="Extends" value="vehicleGyrocopterPlaceable" />
 			<property name="CustomIcon" value="vehicleGyrocopterPlaceable" />
-			<property name="CreativeMode" value="Player" />
+			<property name="CreativeMode" value="All" />
 			<property name="DescriptionKey" value="HSVehicleDecoDesc" />
 			<property name="EconomicValue" value="0" />
 			<property name="SellableToTrader" value="false" />

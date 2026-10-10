@@ -67,6 +67,7 @@ foreach ($name in $expected.Keys) {
     if ($itemsXml -notmatch [regex]::Escape("Extends`" value=`"$parent`"")) { Fail "$name does not extend $parent" } else { Ok "extends $parent" }
     if ($itemsXml -notmatch [regex]::Escape("CustomIcon`" value=`"$parent`"")) { Fail "$name missing icon $parent" } else { Ok "icon $parent" }
     $item = [regex]::Match($itemsXml, "(?s)<item name=`"$name`".*?</item>").Value
+    if ($item -notmatch 'CreativeMode" value="All"') { Fail "$name creative mode is not All (hidden in the prefab editor)" } else { Ok "$name creative All" }
     if ($item -notmatch "ModSlots[\s\S]*?value=`"$($slots[$name])`"") { Fail "$name mod slots" } else { Ok "$name mod slots $($slots[$name])" }
     $chunk = [regex]::Match($recipeXml, "(?s)<recipe name=`"$name`".*?</recipe>").Value
     $wheels = [regex]::Match($chunk, 'name="vehicleWheels" count="(\d+)"')
