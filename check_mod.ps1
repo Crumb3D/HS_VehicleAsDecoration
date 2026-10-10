@@ -28,6 +28,10 @@ else {
         if ($blocksXml -notmatch [regex]::Escape("block name=`"$anchor`"")) { Fail "blocks.xml missing $anchor" }
     }
     if ($blocksXml -notmatch "HSVehicleDeco, HSVehicleAsDecoration") { Fail "anchor class missing" } else { Ok "anchor class" }
+    if ($blocksXml -match "Shape`" value=`"Invisible`"") { Fail "anchor is still invisible, so the world editor preview cannot draw it" } else { Ok "anchor shape" }
+    foreach ($model in @("VBikeMountainP.prefab", "VBikeMiniP.prefab", "VMotorcycleP.prefab", "VTruck4x4P.prefab", "VGyrocopterP.prefab")) {
+        if ($blocksXml -notmatch [regex]::Escape($model)) { Fail "blocks.xml missing model $model" } else { Ok "model $model" }
+    }
     if ($blocksXml -match "CanPickup`" value=`"true`"") { Fail "anchor can be picked up" } else { Ok "anchors cannot be picked up" }
 }
 

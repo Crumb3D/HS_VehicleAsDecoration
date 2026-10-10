@@ -26,6 +26,12 @@ public class BlockHSVehicleDeco : Block
         return true;
     }
 
+    public override void OnBlockEntityTransformAfterActivated(WorldBase _world, Vector3i _blockPos, BlockValue _blockValue, BlockEntityData _ebcd)
+    {
+        base.OnBlockEntityTransformAfterActivated(_world, _blockPos, _blockValue, _ebcd);
+        HSVehicleDecoration.SyncBlockModel(_world as World, _blockPos);
+    }
+
     public override void OnBlockAdded(WorldBase _world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue, PlatformUserIdentifierAbs _addedByPlayer)
     {
         base.OnBlockAdded(_world, _chunk, _blockPos, _blockValue, _addedByPlayer);

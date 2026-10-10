@@ -18,6 +18,8 @@ public static class HSVehicleDecoration
     static readonly HashSet<int> applied = new HashSet<int>();
     static readonly Dictionary<int, Vector3i> anchors = new Dictionary<int, Vector3i>();
     static readonly Dictionary<int, string> saved = new Dictionary<int, string>();
+    static readonly Dictionary<int, Vector3> parked = new Dictionary<int, Vector3>();
+    static readonly HashSet<int> wheelsOff = new HashSet<int>();
     static readonly Dictionary<Vector3i, PendingPlace> pending = new Dictionary<Vector3i, PendingPlace>();
     static readonly List<Vector3i> editorSpawn = new List<Vector3i>();
     static bool editorSpawnRunning;
@@ -171,6 +173,7 @@ public static class HSVehicleDecoration
         {
             if (light != null && light.LightType == LightType.Directional && applied.Add(existing.entityId))
                 ApplySaved(existing, light, blockValue, vehicleItem);
+            SyncBlockModel(gameWorld, blockPos);
             return;
         }
 
@@ -196,11 +199,53 @@ public static class HSVehicleDecoration
             vehicle.GetVehicle().SetItemValue(item);
         }
         anchors[vehicle.entityId] = blockPos;
+        parked[vehicle.entityId] = spawn;
         if (light != null && light.LightType == LightType.Directional)
             applied.Add(vehicle.entityId);
         saved[vehicle.entityId] = Signature(yaw, item);
         gameWorld.SpawnEntityInWorld(vehicle);
         KeepUpright(vehicle);
+        SyncBlockModel(gameWorld, blockPos);
+    }
+
+    // The world editor draws a prefab preview from block models. It does not draw entities.
+    // The live shell is the one that can take mods, so the block model is hidden while that shell is on screen.
+    public static void SyncBlockModel(World world, Vector3i blockPos)
+    {
+        if (world == null)
+            return;
+        Chunk chunk = world.GetChunkFromWorldPos(blockPos.x, blockPos.y, blockPos.z) as Chunk;
+        if (chunk == null)
+            return;
+        BlockEntityData data = chunk.GetBlockEntity(blockPos);
+        if (data == null || data.transform == null)
+            return;
+        EntityVehicle shell = FindShell(world, blockPos);
+        bool shellVisible = false;
+        if (shell != null)
+        {
+            Renderer[] shellRenderers = shell.GetComponentsInChildren<Renderer>();
+            for (int i = 0; i < shellRenderers.Length; i++)
+            {
+                if (shellRenderers[i] != null && shellRenderers[i].enabled && shellRenderers[i].gameObject.activeInHierarchy)
+                {
+                    shellVisible = true;
+                    break;
+                }
+            }
+            Collider[] blockColliders = data.transform.GetComponentsInChildren<Collider>(true);
+            for (int i = 0; i < blockColliders.Length; i++)
+            {
+                if (blockColliders[i] != null)
+                    blockColliders[i].enabled = false;
+            }
+        }
+        Renderer[] blockRenderers = data.transform.GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < blockRenderers.Length; i++)
+        {
+            if (blockRenderers[i] != null)
+                blockRenderers[i].enabled = !shellVisible;
+        }
     }
 
     public static void RemoveShell(WorldBase world, Vector3i blockPos)
@@ -224,6 +269,8 @@ public static class HSVehicleDecoration
             anchors.Remove(drop[i]);
             applied.Remove(drop[i]);
             saved.Remove(drop[i]);
+            parked.Remove(drop[i]);
+            wheelsOff.Remove(drop[i]);
         }
     }
 
@@ -235,9 +282,21 @@ public static class HSVehicleDecoration
         if (!body.isKinematic)
             body.isKinematic = true;
         body.constraints = RigidbodyConstraints.FreezeAll;
+        Transform physics = vehicle.PhysicsTransform;
+        if (wheelsOff.Add(vehicle.entityId) && physics != null)
+        {
+            Collider[] wheels = physics.GetComponentsInChildren<Collider>(true);
+            for (int i = 0; i < wheels.Length; i++)
+            {
+                if (wheels[i] != null)
+                    wheels[i].enabled = false;
+            }
+        }
+        Vector3 park;
+        if (parked.TryGetValue(vehicle.entityId, out park) && (vehicle.position - park).sqrMagnitude > 0.04f)
+            vehicle.SetPosition(park, true);
         SyncFromEntity(vehicle);
 
-        Transform physics = vehicle.PhysicsTransform;
         Quaternion current = physics != null ? physics.rotation : body.rotation;
         Vector3 up = current * Vector3.up;
         if (up.y > 0.98f)

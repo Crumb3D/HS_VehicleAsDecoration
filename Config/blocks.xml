@@ -6,7 +6,9 @@
 			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
 			<property name="CustomIcon" value="vehicleBicyclePlaceable" />
 			<property name="Material" value="Mmetal_medium" />
-			<property name="Shape" value="Invisible" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="@:Entities/Vehicles/VBikeMountain/VBikeMountainP.prefab" />
+			<property name="ModelOffset" value="0,0.25,0" />
 			<property name="WaterFlow" value="permitted" />
 			<property name="Collide" value="sight" />
 			<property name="StabilitySupport" value="false" />
@@ -23,7 +25,9 @@
 			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
 			<property name="CustomIcon" value="vehicleMinibikePlaceable" />
 			<property name="Material" value="Mmetal_medium" />
-			<property name="Shape" value="Invisible" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="@:Entities/Vehicles/VBikeMini/VBikeMiniP.prefab" />
+			<property name="ModelOffset" value="0,0.25,0" />
 			<property name="WaterFlow" value="permitted" />
 			<property name="Collide" value="sight" />
 			<property name="StabilitySupport" value="false" />
@@ -40,7 +44,9 @@
 			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
 			<property name="CustomIcon" value="vehicleMotorcyclePlaceable" />
 			<property name="Material" value="Mmetal_medium" />
-			<property name="Shape" value="Invisible" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="@:Entities/Vehicles/VMotorcycle/VMotorcycleP.prefab" />
+			<property name="ModelOffset" value="0,0.25,0" />
 			<property name="WaterFlow" value="permitted" />
 			<property name="Collide" value="sight" />
 			<property name="StabilitySupport" value="false" />
@@ -57,7 +63,9 @@
 			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
 			<property name="CustomIcon" value="vehicleTruck4x4Placeable" />
 			<property name="Material" value="Mmetal_medium" />
-			<property name="Shape" value="Invisible" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="@:Entities/Vehicles/VTruck4x4/VTruck4x4P.prefab" />
+			<property name="ModelOffset" value="0,0.25,0" />
 			<property name="WaterFlow" value="permitted" />
 			<property name="Collide" value="sight" />
 			<property name="StabilitySupport" value="false" />
@@ -74,7 +82,9 @@
 			<property name="Class" value="HSVehicleDeco, HSVehicleAsDecoration" />
 			<property name="CustomIcon" value="vehicleGyrocopterPlaceable" />
 			<property name="Material" value="Mmetal_medium" />
-			<property name="Shape" value="Invisible" />
+			<property name="Shape" value="ModelEntity" />
+			<property name="Model" value="@:Entities/Vehicles/VGyrocopter/VGyrocopterP.prefab" />
+			<property name="ModelOffset" value="0,0.25,0" />
 			<property name="WaterFlow" value="permitted" />
 			<property name="Collide" value="sight" />
 			<property name="StabilitySupport" value="false" />

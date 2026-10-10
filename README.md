@@ -16,6 +16,8 @@ From 1.0.3, placing a shell also places a hidden block in the cell under it. The
 
 The prefab editor does not run block ticks. From 1.0.6 the shell is spawned as soon as you place it there, instead of waiting for a tick that never comes.
 
+The world editor does not draw those live shells. It draws a preview from the blocks in the prefab file. From 1.0.7 each anchor block carries the vehicle mesh, so the preview shows the bicycle, minibike, motorcycle, 4x4, and gyrocopter. Save the prefab in the prefab editor before you place it in the world editor.
+
 Shells placed before 1.0.3 were only vehicles. They are not in a prefab saved with an older copy. Place them again and save the prefab.
 
 To remove one in the prefab editor, delete the invisible block in the cell under the vehicle.
