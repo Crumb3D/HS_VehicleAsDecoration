@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using HarmonyLib;
@@ -18,6 +19,8 @@ public static class HSVehicleDecoration
     static readonly Dictionary<int, Vector3i> anchors = new Dictionary<int, Vector3i>();
     static readonly Dictionary<int, string> saved = new Dictionary<int, string>();
     static readonly Dictionary<Vector3i, PendingPlace> pending = new Dictionary<Vector3i, PendingPlace>();
+    static readonly List<Vector3i> editorSpawn = new List<Vector3i>();
+    static bool editorSpawnRunning;
 
     static FieldInfo modField;
     static FieldInfo cosmeticField;
@@ -107,6 +110,53 @@ public static class HSVehicleDecoration
         Vector3 spawn = has ? place.spawn : blockPos.ToVector3() + new Vector3(0.5f, 0.25f, 0.5f);
         ItemValue item = has ? place.item : null;
         WriteAnchor(world, chunk, blockPos, vehicleItem, spawn, yaw, item);
+    }
+
+    // The prefab editor sets GameManager.bTickingActive false, so a scheduled
+    // block update never arrives and the shell stays invisible.
+    public static void ScheduleShell(WorldBase world, Vector3i blockPos, int blockId)
+    {
+        if (GameManager.Instance != null && GameManager.Instance.IsEditMode())
+        {
+            QueueEditorSpawn(blockPos);
+            return;
+        }
+        world.GetWBT().AddScheduledBlockUpdate(blockPos, blockId, 20uL);
+    }
+
+    public static bool HasPending(Vector3i blockPos)
+    {
+        return pending.ContainsKey(blockPos);
+    }
+
+    static void QueueEditorSpawn(Vector3i blockPos)
+    {
+        editorSpawn.Add(blockPos);
+        if (editorSpawnRunning || GameManager.Instance == null)
+            return;
+        editorSpawnRunning = true;
+        GameManager.Instance.StartCoroutine(SpawnEditorShells());
+    }
+
+    static IEnumerator SpawnEditorShells()
+    {
+        // Prefab.CopyIntoLocal writes the saved tile entity after OnBlockAdded returns.
+        yield return null;
+        Vector3i[] batch = editorSpawn.ToArray();
+        editorSpawn.Clear();
+        editorSpawnRunning = false;
+        World world = GameManager.Instance != null ? GameManager.Instance.World : null;
+        if (world == null)
+            yield break;
+        for (int i = 0; i < batch.Length; i++)
+        {
+            Vector3i pos = batch[i];
+            BlockValue blockValue = world.GetBlock(pos.x, pos.y, pos.z);
+            BlockHSVehicleDeco block = blockValue.Block as BlockHSVehicleDeco;
+            if (block == null || blockValue.ischild)
+                continue;
+            MaintainShell(world, pos, blockValue, block.vehicleItem, block.spawnClass);
+        }
     }
 
     public static void MaintainShell(WorldBase world, Vector3i blockPos, BlockValue blockValue, string vehicleItem, string spawnClass)

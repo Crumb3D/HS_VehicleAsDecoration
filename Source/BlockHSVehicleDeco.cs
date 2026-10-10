@@ -36,8 +36,14 @@ public class BlockHSVehicleDeco : Block
             HSVehicleDecoration.ForgetPlacement(_blockPos);
             return;
         }
+        bool justPlaced = HSVehicleDecoration.HasPending(_blockPos);
         HSVehicleDecoration.CapturePlacement(_world, _chunk, _blockPos, _blockValue, vehicleItem);
-        _world.GetWBT().AddScheduledBlockUpdate(_blockPos, blockID, 20uL);
+        if (justPlaced && GameManager.Instance != null && GameManager.Instance.IsEditMode())
+        {
+            HSVehicleDecoration.MaintainShell(_world, _blockPos, _blockValue, vehicleItem, spawnClass);
+            return;
+        }
+        HSVehicleDecoration.ScheduleShell(_world, _blockPos, blockID);
     }
 
     public override void OnBlockLoaded(WorldBase _world, Vector3i _blockPos, BlockValue _blockValue)
@@ -45,7 +51,7 @@ public class BlockHSVehicleDeco : Block
         base.OnBlockLoaded(_world, _blockPos, _blockValue);
         if (_blockValue.ischild || !SingletonMonoBehaviour<ConnectionManager>.Instance.IsServer)
             return;
-        _world.GetWBT().AddScheduledBlockUpdate(_blockPos, blockID, 20uL);
+        HSVehicleDecoration.ScheduleShell(_world, _blockPos, blockID);
     }
 
     public override void OnBlockRemoved(WorldBase _world, Chunk _chunk, Vector3i _blockPos, BlockValue _blockValue)

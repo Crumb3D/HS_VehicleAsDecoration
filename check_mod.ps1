@@ -85,7 +85,7 @@ $dll = Join-Path $Root "HSVehicleAsDecoration.dll"
 if (-not (Test-Path $dll)) { Fail "HSVehicleAsDecoration.dll missing" }
 else {
     $ascii = [Text.Encoding]::ASCII.GetString([IO.File]::ReadAllBytes($dll))
-    foreach ($t in @("HSVehicleAsDecorationMod", "HSVehicleDecoration", "IsShell", "isDriveable", "AddFuelFromInventory", "KeepUpright", "BlockHSVehicleDeco", "AddTrackedVehicle")) {
+    foreach ($t in @("HSVehicleAsDecorationMod", "HSVehicleDecoration", "IsShell", "isDriveable", "AddFuelFromInventory", "KeepUpright", "BlockHSVehicleDeco", "AddTrackedVehicle", "IsEditMode")) {
         if ($ascii.IndexOf($t) -lt 0) { Fail "DLL missing '$t'" } else { Ok "dll $t" }
     }
 }

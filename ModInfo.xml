@@ -4,6 +4,6 @@
 	<DisplayName value="HS Vehicle As Decoration" />
 	<Description value="Craftable vehicle shells for prefabs. Full wheels and mod slots, no engine, battery, refuel, or pickup. A hidden block keeps each one in the prefab. Mods show on the mesh. Bikes stay upright." />
 	<Author value="Crumb" />
-	<Version value="1.0.5" />
+	<Version value="1.0.6" />
 	<SkipWithAntiCheat value="true" />
 </xml>

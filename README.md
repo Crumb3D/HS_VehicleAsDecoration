@@ -14,6 +14,8 @@ A prefab file does not store vehicles. That is why a shell used to disappear whe
 
 From 1.0.3, placing a shell also places a hidden block in the cell under it. The prefab keeps that block. Loading the prefab into a testing world or a normal world spawns the shell again, mods included. Take stays off, so it cannot be picked up.
 
+The prefab editor does not run block ticks. From 1.0.6 the shell is spawned as soon as you place it there, instead of waiting for a tick that never comes.
+
 Shells placed before 1.0.3 were only vehicles. They are not in a prefab saved with an older copy. Place them again and save the prefab.
 
 To remove one in the prefab editor, delete the invisible block in the cell under the vehicle.
