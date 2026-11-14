@@ -1,6 +1,6 @@
 # HS Vehicle As Decoration
 
-7 Days to Die 3.0–3.3. Same DLL on the client and the dedicated server.
+7 Days to Die 3.0–3.4. Same DLL on the client and the dedicated server.
 
 These are the real bicycle, minibike, motorcycle, 4x4, and gyrocopter. They keep their wheels, suspension, and mod slots. Place one, open it with the service interaction, and install mods the same way as a normal vehicle. Armor, storage, lights, a plow, an extra seat, and the other mod meshes show on the model.
 

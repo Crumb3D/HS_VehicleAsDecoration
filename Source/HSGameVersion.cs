@@ -3,7 +3,7 @@ using System;
 // 3.2 and 3.3: Constants.cVersionInformation. Minor 20 = 3.2, Minor 30 = 3.3.
 public static class HSGameVersion
 {
-    public static readonly string[] Supported = { "3.0", "3.1", "3.2", "3.3" };
+    public static readonly string[] Supported = { "3.0", "3.1", "3.2", "3.3", "3.4" };
 
     public static string Current { get; private set; }
 
